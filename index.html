@@ -130,6 +130,18 @@
     .voltar:hover {
       background: #b20710;
     }
+
+    .temporadas {
+      margin-top: 20px;
+    }
+
+    .temporadas select {
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 8px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -139,21 +151,9 @@
   <div id="catalogo" class="container">
     <h2>Disponíveis</h2>
     <div class="cards">
-      <div class="card" onclick="abrirSerie('alice')">
-        <img src="https://image.tmdb.org/t/p/w200/xo0fgAUoEeVQ7KsKeMWypyglvnf.jpg" alt="Alice in Borderland">
-        <p>Alice in Borderland</p>
-      </div>
-      <div class="card" onclick="abrirSerie('wandinha')">
-        <img src="https://image.tmdb.org/t/p/w200/8GumIQiSAv4tnhVJkT1HkZrQrCW.jpg" alt="Wandinha">
-        <p>Wandinha</p>
-      </div>
-      <div class="card" onclick="abrirSerie('patinho')">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9G3Dill75qZMQynb4_QdyMd-HnpiuXnlWo7gXL3ZRBg&s=10" alt="patinho">
-        <p>patinho</p>
-      </div>
-      <div class="card" onclick="abrirSerie('ScreamQueens_T1')">
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5pFxT_mD4YLVQ4HCArPftpTW72JPT0UfX9aqcGAG2dnAmyRlRKoxwFu_cGgwPrEc_01fT7yAntSBcC9Z4kCy7ED-k2MNCp4xyOtl6O5qZ" alt="Scream Queens - Temporada 1">
-        <p>Scream Queens - Temporada 1</p>
+      <div class="card" onclick="abrirSerie('ScreamQueens')">
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1" alt="Scream Queens - Temporadas">
+        <p>Scream Queens</p>
       </div>
     </div>
   </div>
@@ -174,6 +174,12 @@
       <iframe id="videoPlayer" allowfullscreen></iframe>
     </div>
 
+    <!-- Seleção de temporada -->
+    <div class="temporadas">
+      <label for="temporadaSelect">Temporada:</label>
+      <select id="temporadaSelect" onchange="carregarTemporada()"></select>
+    </div>
+
     <div class="episodios">
       <h2>Episódios</h2>
       <div id="listaEpisodios"></div>
@@ -182,82 +188,85 @@
 
   <script>
     const series = {
-      alice: {
-        titulo: "Alice in Borderland - Temporada 3",
-        info: "2025 | Aventura / Drama / Ficção Científica",
-        desc: "Arisu e seus amigos enfrentam novos desafios em jogos mortais no Japão distópico.",
-        poster: "https://via.placeholder.com/200x300.png?text=Alice+in+Borderland",
-        episodios: [
-          "1AbCDeFgHiJKlmNOPqRS2tuvWXyz",
-          "9ZyXwVuTsRqPoNmLkJiHgFeDcBa",
-          "4XwVyUtsRqPolmLKjIhGfEdCbAa"
-        ]
-      },
-      wandinha: {
-        titulo: "Wandinha - Temporada 1",
-        info: "2022 | Mistério / Fantasia",
-        desc: "Wandinha Addams investiga mistérios na escola Nunca Mais.",
-        poster: "https://via.placeholder.com/200x300.png?text=Wandinha",
-        episodios: [
-          "7HgTfEdCbAa9ZyXwVuTsRqPoNmLKjI",
-          "6UtSrqPoNmLkJiHgFeDcBa9ZyXwVt",
-          "5XwVutsRqPoNmLKjIhGfEdCbAa9Zy"
-        ]
-      },
-      patinho: {
-        titulo: "patinho - Temporada X",
-        info: "ANO | GÊNERO",
-        desc: "Descrição curta da série.",
-        poster: "URL_DO_POSTER_GRANDE",
-        episodios: [
-          "ID_DO_EPISODIO_1",
-          "ID_DO_EPISODIO_2",
-          "ID_DO_EPISODIO_3"
-        ]
-      },
-      ScreamQueens_T1: {
-        titulo: "Scream Queens - Temporada 1",
+      ScreamQueens: {
+        titulo: "Scream Queens",
         info: "2015 | Terror, Comédia, Mistério",
         desc: "Um assassino mascarado começa a atacar um campus universitário, e uma fraternidade cheia de segredos se torna o alvo.",
         poster: "https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1",
-        episodios: [
-          "19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx",
-          "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
-          "1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe",
-          "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
-          "1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy",
-          "1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ",
-          "1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr",
-          "1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp",
-          "1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3",
-          "14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO",
-          "1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z",
-          "1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"
-        ]
+        temporadas: {
+          1: [
+            "19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx",
+            "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
+            "1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe",
+            "1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy",
+            "1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ",
+            "1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr",
+            "1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp",
+            "1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3",
+            "14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO",
+            "1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z",
+            "1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"
+          ],
+          2: [
+            "1GnJewbigahEYWGUOL9MCcfSuRx6kczRQ",
+            "10tWsFBQfa4LPg4X6Kxjw_44oXk9ReUVJ",
+            "1t4VFhPJjoQ_lOqxb0eojNkneGeMTMW8U",
+            "1elx1BnD-toXUX5PJS-6ex6fLWxiIMsWx",
+            "1OCOdeAv_Ouz97ucnrLrHt9Aa6Ihc1tE7",
+            "1Zm7raBPgruwo_4RnboHr5ShSXex6fGg8",
+            "1oI3X-U1JpBku69plHcpVvYmM_SZv0EuZ",
+            "13X2Q4pn5BijMbCAFBgIjO7MXL7RQHKZR",
+            "1DjG6xYOLLU5HkGFcCJtoUOa_nyfV1pzv",
+            "1Vy22tO2iWXUpAM1bi9doqPmAQvZGZAC"
+          ]
+        }
       }
     };
 
+    let serieAtual = null;
+    let temporadaAtual = 1;
+
     function abrirSerie(id) {
-      const serie = series[id];
+      serieAtual = series[id];
       document.getElementById("catalogo").style.display = "none";
       document.getElementById("serie").style.display = "block";
 
-      document.getElementById("tituloSerie").innerText = serie.titulo;
-      document.getElementById("infoSerie").innerText = serie.info;
-      document.getElementById("descSerie").innerText = serie.desc;
-      document.getElementById("posterSerie").src = serie.poster;
+      document.getElementById("tituloSerie").innerText = serieAtual.titulo;
+      document.getElementById("infoSerie").innerText = serieAtual.info;
+      document.getElementById("descSerie").innerText = serieAtual.desc;
+      document.getElementById("posterSerie").src = serieAtual.poster;
+
+      // carregar temporadas
+      const select = document.getElementById("temporadaSelect");
+      select.innerHTML = "";
+      for (let t in serieAtual.temporadas) {
+        const opt = document.createElement("option");
+        opt.value = t;
+        opt.text = `Temporada ${t}`;
+        select.appendChild(opt);
+      }
+
+      temporadaAtual = Object.keys(serieAtual.temporadas)[0];
+      select.value = temporadaAtual;
+
+      carregarTemporada();
+    }
+
+    function carregarTemporada() {
+      const select = document.getElementById("temporadaSelect");
+      temporadaAtual = select.value;
 
       const lista = document.getElementById("listaEpisodios");
       lista.innerHTML = "";
 
-      serie.episodios.forEach((idVideo, index) => {
+      serieAtual.temporadas[temporadaAtual].forEach((idVideo, index) => {
         const btn = document.createElement("button");
-        btn.innerText = `Episódio ${index+1}`;
+        btn.innerText = `Episódio ${index + 1}`;
         btn.onclick = () => carregarVideo(idVideo);
         lista.appendChild(btn);
       });
 
-      carregarVideo(serie.episodios[0]); // carrega primeiro episódio
+      carregarVideo(serieAtual.temporadas[temporadaAtual][0]);
     }
 
     function carregarVideo(id) {
