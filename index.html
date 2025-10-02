@@ -147,6 +147,10 @@
         <img src="https://image.tmdb.org/t/p/w200/8GumIQiSAv4tnhVJkT1HkZrQrCW.jpg" alt="Wandinha">
         <p>Wandinha</p>
       </div>
+      <div class="card" onclick="abrirSerie('patinho')">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9G3Dill75qZMQynb4_QdyMd-HnpiuXnlWo7gXL3ZRBg&s=10">
+  <p>patinho</p>
+      </div>
     </div>
   </div>
 
@@ -195,7 +199,18 @@
           "6UtSrqPoNmLkJiHgFeDcBa9ZyXwVt", // ID episódio 2
           "5XwVutsRqPoNmLKjIhGfEdCbAa9Zy"  // ID episódio 3
         ]
-      }
+      },
+      ID_INTERNO: {
+  titulo: "patinho  - Temporada X",
+  info: "ANO | GÊNERO",
+  desc: "Descrição curta da série.",
+  poster: "URL_DO_POSTER_GRANDE",
+  episodios: [
+    "ID_DO_EPISODIO_1",
+    "ID_DO_EPISODIO_2",
+    "ID_DO_EPISODIO_3"
+  ]
+}
     };
 
     function abrirSerie(id) {
