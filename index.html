@@ -159,6 +159,11 @@
         <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Doctor Who - Temporadas">
         <p>Doctor Who</p>
       </div>
+      
+      <div class="card" onclick="abrirSerie('monstersatwork')">
+  <img src="https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg" alt="monster at work">
+  <p>monster at work</p>
+      </div>
     </div>
   </div>
 
@@ -192,37 +197,41 @@
 
   <script>
     const series = {
+      monstersatwork: {
+
+  titulo: "monsters at work",
+
+  info: "2025 | Comédia",
+
+  desc: "A série começa no dia seguinte aos eventos do primeiro filme, quando a Monstros S.A. descobre que o riso das crianças é mais eficiente em gerar energia do que os gritos. O novo objetivo da fábrica é o "Andar do Riso", onde os monstros agora buscam arrancar gargalhadas em vez de causar medo.",
+
+  poster: "https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg",
+
+  temporadas: {
+
+    1: [
+
+      "1PDNvw4p83MAmB6DZPvm6RdrruOtJ4Z5K",
+
+      "1brBdmPr-yUZrj51-5Ke94q7gdji6T6Z9",
+
+      "1D7MvyAXuK4TFng-k8WOLTRMXStl4GRLq"
+
+      "1ncTAEhygDBsmcbhYNyFHt7MWlNR3dCPO",
+
+      "1rUjdffzflYHVU8nzD6vJOMEisVsj5bsY"
+
+    ]
+  }
+ },
       ScreamQueens: {
         titulo: "Scream Queens",
         info: "2015 | Terror, Comédia, Mistério",
         desc: "Um assassino mascarado começa a atacar um campus universitário, e uma fraternidade cheia de segredos se torna o alvo.",
         poster: "https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1",
         temporadas: {
-          1: [
-            "19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx",
-            "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
-            "1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe",
-            "1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy",
-            "1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ",
-            "1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr",
-            "1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp",
-            "1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3",
-            "14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO",
-            "1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z",
-            "1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"
-          ],
-          2: [
-            "1GnJewbigahEYWGUOL9MCcfSuRx6kczRQ",
-            "10tWsFBQfa4LPg4X6Kxjw_44oXk9ReUVJ",
-            "1t4VFhPJjoQ_lOqxb0eojNkneGeMTMW8U",
-            "1elx1BnD-toXUX5PJS-6ex6fLWxiIMsWx",
-            "1OCOdeAv_Ouz97ucnrLrHt9Aa6Ihc1tE7",
-            "1Zm7raBPgruwo_4RnboHr5ShSXex6fGg8",
-            "1oI3X-U1JpBku69plHcpVvYmM_SZv0EuZ",
-            "13X2Q4pn5BijMbCAFBgIjO7MXL7RQHKZR",
-            "1DjG6xYOLLU5HkGFcCJtoUOa_nyfV1pzv",
-            "1Vy22tO2iWXUpAM1bi9doqPmAQvZGZAC"
-          ]
+          1: ["19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx","1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd","1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe","1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy","1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ","1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr""1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp","1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3","14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO","1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z","1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"],
+          2: ["1GnJewbigahEYWGUOL9MCcfSuRx6kczRQ","10tWsFBQfa4LPg4X6Kxjw_44oXk9ReUVJ","1t4VFhPJjoQ_lOqxb0eojNkneGeMTMW8U","1elx1BnD-toXUX5PJS-6ex6fLWxiIMsWx","1OCOdeAv_Ouz97ucnrLrHt9Aa6Ihc1tE7","1Zm7raBPgruwo_4RnboHr5ShSXex6fGg8","1oI3X-U1JpBku69plHcpVvYmM_SZv0EuZ","13X2Q4pn5BijMbCAFBgIjO7MXL7RQHKZR","1DjG6xYOLLU5HkGFcCJtoUOa_nyfV1pzv","1Vy22tO2iWXUpAM1bi9doqPmAQvZGZAC"]
         }
       },
 
