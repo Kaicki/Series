@@ -135,7 +135,7 @@
 <body>
   <header>Séries</header>
 
-  <!--kayke aqui colocar o catálogo das séries-->
+  <!-- Catálogo -->
   <div id="catalogo" class="container">
     <h2>Disponíveis</h2>
     <div class="cards">
@@ -148,12 +148,12 @@
         <p>Wandinha</p>
       </div>
       <div class="card" onclick="abrirSerie('patinho')">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9G3Dill75qZMQynb4_QdyMd-HnpiuXnlWo7gXL3ZRBg&s=10">
-  <p>patinho</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9G3Dill75qZMQynb4_QdyMd-HnpiuXnlWo7gXL3ZRBg&s=10" alt="patinho">
+        <p>patinho</p>
       </div>
       <div class="card" onclick="abrirSerie('ScreamQueens_T1')">
-  <img src="https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1" alt="Scream Queens - Temporada 1">
-  <p>Scream Queens - Temporada 1</p>
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1" alt="Scream Queens - Temporada 1">
+        <p>Scream Queens - Temporada 1</p>
       </div>
     </div>
   </div>
@@ -179,7 +179,7 @@
       <div id="listaEpisodios"></div>
     </div>
   </div>
-<!--kayke aqui coloca os episódios-->
+
   <script>
     const series = {
       alice: {
@@ -188,9 +188,9 @@
         desc: "Arisu e seus amigos enfrentam novos desafios em jogos mortais no Japão distópico.",
         poster: "https://via.placeholder.com/200x300.png?text=Alice+in+Borderland",
         episodios: [
-          "1AbCDeFgHiJKlmNOPqRS2tuvWXyz", // ID episódio 1
-          "9ZyXwVuTsRqPoNmLkJiHgFeDcBa", // ID episódio 2
-          "4XwVyUtsRqPolmLKjIhGfEdCbAa"  // ID episódio 3
+          "1AbCDeFgHiJKlmNOPqRS2tuvWXyz",
+          "9ZyXwVuTsRqPoNmLkJiHgFeDcBa",
+          "4XwVyUtsRqPolmLKjIhGfEdCbAa"
         ]
       },
       wandinha: {
@@ -199,43 +199,42 @@
         desc: "Wandinha Addams investiga mistérios na escola Nunca Mais.",
         poster: "https://via.placeholder.com/200x300.png?text=Wandinha",
         episodios: [
-          "7HgTfEdCbAa9ZyXwVuTsRqPoNmLKjI", // ID episódio 1
-          "6UtSrqPoNmLkJiHgFeDcBa9ZyXwVt", // ID episódio 2
-          "5XwVutsRqPoNmLKjIhGfEdCbAa9Zy"  // ID episódio 3
+          "7HgTfEdCbAa9ZyXwVuTsRqPoNmLKjI",
+          "6UtSrqPoNmLkJiHgFeDcBa9ZyXwVt",
+          "5XwVutsRqPoNmLKjIhGfEdCbAa9Zy"
         ]
       },
-      ID_INTERNO: {
-  titulo: "patinho  - Temporada X",
-  info: "ANO | GÊNERO",
-  desc: "Descrição curta da série.",
-  poster: "URL_DO_POSTER_GRANDE",
-  episodios: [
-    "ID_DO_EPISODIO_1",
-    "ID_DO_EPISODIO_2",
-    "ID_DO_EPISODIO_3"
-  ]
-},
-      ID_INTERNO: {
-  id: "ScreamQueens_T1",
-  titulo: "Scream Queens - Temporada 1",
-  info: "2015 | Terror, Comédia, Mistério",
-  desc: "Um assassino mascarado começa a atacar um campus universitário, e uma fraternidade cheia de segredos se torna o alvo.",
-  poster: "URL_DO_POSTER_GRANDE",
-  episodios: [
-    "19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx",
-    "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
-    "1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe",
-    "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
-    "1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy",
-    "1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ",
-    "1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr",
-    "1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp",
-    "1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3",
-    "14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO",
-    "1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z",
-    "1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"
-  ]
-        }
+      patinho: {
+        titulo: "patinho - Temporada X",
+        info: "ANO | GÊNERO",
+        desc: "Descrição curta da série.",
+        poster: "URL_DO_POSTER_GRANDE",
+        episodios: [
+          "ID_DO_EPISODIO_1",
+          "ID_DO_EPISODIO_2",
+          "ID_DO_EPISODIO_3"
+        ]
+      },
+      ScreamQueens_T1: {
+        titulo: "Scream Queens - Temporada 1",
+        info: "2015 | Terror, Comédia, Mistério",
+        desc: "Um assassino mascarado começa a atacar um campus universitário, e uma fraternidade cheia de segredos se torna o alvo.",
+        poster: "https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1",
+        episodios: [
+          "19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx",
+          "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
+          "1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe",
+          "1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd",
+          "1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy",
+          "1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ",
+          "1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr",
+          "1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp",
+          "1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3",
+          "14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO",
+          "1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z",
+          "1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"
+        ]
+      }
     };
 
     function abrirSerie(id) {
@@ -269,7 +268,7 @@
     function voltar() {
       document.getElementById("serie").style.display = "none";
       document.getElementById("catalogo").style.display = "block";
-      document.getElementById("videoPlayer").src = ""; // limpa o player
+      document.getElementById("videoPlayer").src = "";
     }
   </script>
 </body>
