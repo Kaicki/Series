@@ -151,15 +151,14 @@
   <div id="catalogo" class="container">
     <h2>Disponíveis</h2>
     <div class="cards">
-      <div class="card" onclick="abrirSerie('container')">
+      <div class="card" onclick="abrirSerie('ScreamQueens')">
         <img src="https://super.abril.com.br/wp-content/uploads/2018/07/screamqueens.jpg?quality=70&w=720&crop=1" alt="Scream Queens - Temporadas">
         <p>Scream Queens</p>
       </div>
-        <div id="catalogo" class="container">,
-    <div class="cards">
-      <div class="card" onclick="abrirSerie('DOCTOR_WHO')">
-        <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Scream Queens - Temporadas">
-        <p>DOCTOR WHO</p>
+
+      <div class="card" onclick="abrirSerie('DoctorWho')">
+        <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Doctor Who - Temporadas">
+        <p>Doctor Who</p>
       </div>
     </div>
   </div>
@@ -193,141 +192,6 @@
   </div>
 
   <script>
-   const DOCTOR_WHO = {
-  titulo: "Doctor Who",
-  info: "2005 | Ficção Científica, Aventura",
-  desc: "Um Senhor do Tempo viaja no espaço e tempo em sua nave TARDIS, salvando mundos e enfrentando inimigos lendários.",
-  poster: "https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg", // coloque a capa que quiser aqui
-  temporadas: [
-    {
-      temporada: 1,
-      episodios: [
-        "1aPOWMY9eZdxBpD9c9keyQ7ALxDGTXlHi",
-        "12OQIxF9rP-JQJL_h7GIFHXRE_z5UKmKb",
-        "1z9db1Yxx0h0dQ8aPDYQ8gIZ4xSTqWzHN",
-        "1ETRe4B6NDEec4QWv9lBonyXSamFbnqt5",
-        "1EtGEghkGpFHjZ_uvnimwMn7RMZuUmZDD",
-        "1rhzDaM4PnWfNeIrBROyIbME4papPe4kh",
-        "1X7xQJZ9zGsPrKZdqrng8-NQjJaUEb0Kw",
-        "10qVHrvlgGmC0ROUGf18yTjryEjyoKskl",
-        "1yYFCwae_cnL83y5nYOXzSX81GHPfNPVi",
-        "1x_PE1NZdNpUgQ9RRCCpn0fxjTcQ645rx",
-        "1-tKIZ7ipnADEQdUh_4MM4HD-amLbUDnv",
-        "1IBxfHMpG0WYCtXhmEOnrsQ__QaXPAV7J",
-        "1S5R2_jEh_iFrmNTijrhW4WXsc5LHRzZF"
-      ]
-    },
-    {
-      temporada: 2,
-      episodios: [
-        "0B0cnJ5ZQGC0ZUk5LMTBQTjJBaWc",
-        "0B0cnJ5ZQGC0ZX2dlUm9VbEF0Tjg",
-        "0B0cnJ5ZQGC0ZNWV5eUowNW1HQms",
-        "0B0cnJ5ZQGC0ZS1lTTkdESnBsMVU",
-        "0B0cnJ5ZQGC0ZQTZKbVVKX1hXUkU",
-        "0B0cnJ5ZQGC0ZUzItNXZpVmQ5ZXM",
-        "0B0cnJ5ZQGC0ZZFRWd19qY0xKVTA",
-        "0B0cnJ5ZQGC0Zek9OUEpMYmlYbVU",
-        "0B0cnJ5ZQGC0ZMlNUd2pJc3ZvMVE",
-        "0B0cnJ5ZQGC0ZUkhsclE1YmMzOEE",
-        "0B0cnJ5ZQGC0ZSDRTcTh1ejlZVzQ",
-        "0B0cnJ5ZQGC0ZZENYYVdvZFE1X00",
-        "0B0cnJ5ZQGC0ZaElEVDBVTEFhTTA"
-      ]
-    },
-    {
-      temporada: 3,
-      episodios: [
-        "0B0cnJ5ZQGC0ZQjJleGw3TW5VUWM",
-        "0B0cnJ5ZQGC0ZR3lqaHBhLXd1QVk",
-        "0B0cnJ5ZQGC0ZMTl1WXY2aVo4MVk",
-        "0B0cnJ5ZQGC0ZaGdVaXhVaXBtYW8",
-        "0B0cnJ5ZQGC0ZMlFiS0c0THNsQjA",
-        "0B0cnJ5ZQGC0ZYnNtZjdwT3VaOW8",
-        "0B0cnJ5ZQGC0ZMW4xY2dUMlpLZ2M",
-        "0B0cnJ5ZQGC0ZU2pLOGgzelFaeXM",
-        "0B0cnJ5ZQGC0ZNTdUZ3dvTmR1UVU",
-        "0B0cnJ5ZQGC0ZcVAtTUdadkdBTnM",
-        "0B0cnJ5ZQGC0ZcXhkbzJtdzc3eEk",
-        "0B0cnJ5ZQGC0ZY0lndEpraHpiYmc"
-      ]
-    },
-    {
-      temporada: 4,
-      episodios: [
-        "0B0cnJ5ZQGC0ZTnZieVI3eV9QLTQ",
-        "0B0cnJ5ZQGC0ZQUlCdmFZbFBFWVE",
-        "0B0cnJ5ZQGC0ZMEZneHZvMU9ULTA",
-        "0B0cnJ5ZQGC0ZREVhNGxoT1dCS28",
-        "0B0cnJ5ZQGC0ZNERMdjh0MVhiVms",
-        "0B0cnJ5ZQGC0ZTDNIaEJRU28wLXc",
-        "0B0cnJ5ZQGC0ZYnJpRkljUEtORWM",
-        "0B0cnJ5ZQGC0ZU2ZYSVJxSG5kWTQ",
-        "0B0cnJ5ZQGC0ZQURiVHU2WjBfd2c",
-        "0B0cnJ5ZQGC0ZeTBlWEs5ZGJMSHc",
-        "0B0cnJ5ZQGC0ZTXM0ZE1kMjBQVFU",
-        "0B0cnJ5ZQGC0ZUmRJeHhieGhWbFU",
-        "0B0cnJ5ZQGC0ZWW9HRUc0S1ZRSGc",
-        "0B0cnJ5ZQGC0ZN3lfV2VTQnRpcWs",
-        "0B0cnJ5ZQGC0ZOVQ5T0laV0lfSzA",
-        "0B0cnJ5ZQGC0ZNVg0cjAtMWo5WUE"
-      ]
-    },
-    {
-      temporada: 5,
-      episodios: [
-        "0B0cnJ5ZQGC0ZVm1jMmdzeFBzRDg",
-        "0B0cnJ5ZQGC0ZWFdUUXJOQUMtUkE",
-        "0B0cnJ5ZQGC0ZNF9RSkZ6R2tkOEk",
-        "0B0cnJ5ZQGC0ZZEhZbVg2V2dVN2s",
-        "0B0cnJ5ZQGC0ZVUMydUx5Q0xndTg",
-        "0B0ConXlhQ-SxX013TzE4UkZITDA",
-        "0B0ConXlhQ-SxWHF0Qm56N0t0bXM",
-        "0B0ConXlhQ-Sxd0FDNHFYc2FfS1E",
-        "0B0ConXlhQ-SxOUpXT1Z5YU9QckE",
-        "0B0ConXlhQ-SxblZPQmNqenRCT0E",
-        "0B0ConXlhQ-SxWnJKc2xYYjM1YVU",
-        "0B0ConXlhQ-SxUHNGcF9SMFVrek0"
-      ]
-    },
-    {
-      temporada: 6,
-      episodios: [
-        "1vIVCH7qt4io0RKrbcMUKN8RFgH6H7tl6",
-        "0B0ConXlhQ-SxOFFTTHFtNDZMamc",
-        "0B0ConXlhQ-SxNWp5NTZYSnkyNEk",
-        "0B0ConXlhQ-Sxdy1RQzdseGs0cmc",
-        "0B0ConXlhQ-SxOVlYZEpPcEw5UHM",
-        "0B0ConXlhQ-SxMXMyWHpBSm9ZUlE",
-        "0B0ConXlhQ-SxMXMyWHpBSm9ZUlE",
-        "0B0ConXlhQ-SxNjA4clFCdVZ6ZjQ",
-        "0B0ConXlhQ-SxVU5MdW93NUh4WGM",
-        "0B0ConXlhQ-SxbFFfZWJORzJvZVU",
-        "0B0ConXlhQ-SxR1VSUXI0eEN4RlU",
-        "0B0ConXlhQ-SxN0Vzb3RNU2pDSW8",
-        "0B0ConXlhQ-SxWkYySGNZLThmVkk"
-      ]
-    },
-    {
-      temporada: 7,
-      episodios: [
-        "0ByAyYx2cx8NDSFh4a3VTYUVUYnM",
-        "0ByAyYx2cx8NDSGMxX204VENkLWM",
-        "0ByAyYx2cx8NDSmFjMTRxdjI3bkU",
-        "1ZZrt31oRhw7LgFGjYp7cfKq7RlcDpgy4",
-        "1pRxRFOXoKmjgGW_QopsH8vR-MXkngysQ",
-        "1nXZqYEIspKNMh3eL3B42ngwngjTiXvx4",
-        "1qk5yW8yk2RUp_9UCdcyusIIrCR6ey9y0",
-        "1T93jQREjRjQudMoXIMCaaAPQcXay1MEM",
-        "1Z951g4JON04lHMD2ywB9TdiGA4JPqeuG",
-        "1h2cDtxkok6659iXHIjFHNo46Xw4rfVP1",
-        "1f9tQWTL2AzO9YwEjft5OzRwkpUxAviDo",
-        "1no1BQL2AgGtzQa4khnFMdV9LOpd4G6LG",
-        "1kiyOOnOSe_34BdctevnfRt-DLrfxLPoU"
-      ]
-    },
-  ]
-};
     const series = {
       ScreamQueens: {
         titulo: "Scream Queens",
@@ -361,6 +225,22 @@
             "1Vy22tO2iWXUpAM1bi9doqPmAQvZGZAC"
           ]
         }
+      },
+
+      DoctorWho: {
+        titulo: "Doctor Who",
+        info: "2005 | Ficção Científica, Aventura",
+        desc: "Um Senhor do Tempo viaja no espaço e tempo em sua nave TARDIS, salvando mundos e enfrentando inimigos lendários.",
+        poster: "https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg",
+        temporadas: {
+          1: [ "1aPOWMY9eZdxBpD9c9keyQ7ALxDGTXlHi","12OQIxF9rP-JQJL_h7GIFHXRE_z5UKmKb","1z9db1Yxx0h0dQ8aPDYQ8gIZ4xSTqWzHN","1ETRe4B6NDEec4QWv9lBonyXSamFbnqt5","1EtGEghkGpFHjZ_uvnimwMn7RMZuUmZDD","1rhzDaM4PnWfNeIrBROyIbME4papPe4kh","1X7xQJZ9zGsPrKZdqrng8-NQjJaUEb0Kw","10qVHrvlgGmC0ROUGf18yTjryEjyoKskl","1yYFCwae_cnL83y5nYOXzSX81GHPfNPVi","1x_PE1NZdNpUgQ9RRCCpn0fxjTcQ645rx","1-tKIZ7ipnADEQdUh_4MM4HD-amLbUDnv","1IBxfHMpG0WYCtXhmEOnrsQ__QaXPAV7J","1S5R2_jEh_iFrmNTijrhW4WXsc5LHRzZF" ],
+          2: [ "0B0cnJ5ZQGC0ZUk5LMTBQTjJBaWc","0B0cnJ5ZQGC0ZX2dlUm9VbEF0Tjg","0B0cnJ5ZQGC0ZNWV5eUowNW1HQms","0B0cnJ5ZQGC0ZS1lTTkdESnBsMVU","0B0cnJ5ZQGC0ZQTZKbVVKX1hXUkU","0B0cnJ5ZQGC0ZUzItNXZpVmQ5ZXM","0B0cnJ5ZQGC0ZZFRWd19qY0xKVTA","0B0cnJ5ZQGC0Zek9OUEpMYmlYbVU","0B0cnJ5ZQGC0ZMlNUd2pJc3ZvMVE","0B0cnJ5ZQGC0ZUkhsclE1YmMzOEE","0B0cnJ5ZQGC0ZSDRTcTh1ejlZVzQ","0B0cnJ5ZQGC0ZZENYYVdvZFE1X00","0B0cnJ5ZQGC0ZaElEVDBVTEFhTTA" ],
+          3: [ "0B0cnJ5ZQGC0ZQjJleGw3TW5VUWM","0B0cnJ5ZQGC0ZR3lqaHBhLXd1QVk","0B0cnJ5ZQGC0ZMTl1WXY2aVo4MVk","0B0cnJ5ZQGC0ZaGdVaXhVaXBtYW8","0B0cnJ5ZQGC0ZMlFiS0c0THNsQjA","0B0cnJ5ZQGC0ZYnNtZjdwT3VaOW8","0B0cnJ5ZQGC0ZMW4xY2dUMlpLZ2M","0B0cnJ5ZQGC0ZU2pLOGgzelFaeXM","0B0cnJ5ZQGC0ZNTdUZ3dvTmR1UVU","0B0cnJ5ZQGC0ZcVAtTUdadkdBTnM","0B0cnJ5ZQGC0ZcXhkbzJtdzc3eEk","0B0cnJ5ZQGC0ZY0lndEpraHpiYmc" ],
+          4: [ "0B0cnJ5ZQGC0ZTnZieVI3eV9QLTQ","0B0cnJ5ZQGC0ZQUlCdmFZbFBFWVE","0B0cnJ5ZQGC0ZMEZneHZvMU9ULTA","0B0cnJ5ZQGC0ZREVhNGxoT1dCS28","0B0cnJ5ZQGC0ZNERMdjh0MVhiVms","0B0cnJ5ZQGC0ZTDNIaEJRU28wLXc","0B0cnJ5ZQGC0ZYnJpRkljUEtORWM","0B0cnJ5ZQGC0ZU2ZYSVJxSG5kWTQ","0B0cnJ5ZQGC0ZQURiVHU2WjBfd2c","0B0cnJ5ZQGC0ZeTBlWEs5ZGJMSHc","0B0cnJ5ZQGC0ZTXM0ZE1kMjBQVFU","0B0cnJ5ZQGC0ZUmRJeHhieGhWbFU","0B0cnJ5ZQGC0ZWW9HRUc0S1ZRSGc","0B0cnJ5ZQGC0ZN3lfV2VTQnRpcWs","0B0cnJ5ZQGC0ZOVQ5T0laV0lfSzA","0B0cnJ5ZQGC0ZNVg0cjAtMWo5WUE" ],
+          5: [ "0B0cnJ5ZQGC0ZVm1jMmdzeFBzRDg","0B0cnJ5ZQGC0ZWFdUUXJOQUMtUkE","0B0cnJ5ZQGC0ZNF9RSkZ6R2tkOEk","0B0cnJ5ZQGC0ZZEhZbVg2V2dVN2s","0B0cnJ5ZQGC0ZVUMydUx5Q0xndTg","0B0ConXlhQ-SxX013TzE4UkZITDA","0B0ConXlhQ-SxWHF0Qm56N0t0bXM","0B0ConXlhQ-Sxd0FDNHFYc2FfS1E","0B0ConXlhQ-SxOUpXT1Z5YU9QckE","0B0ConXlhQ-SxblZPQmNqenRCT0E","0B0ConXlhQ-SxWnJKc2xYYjM1YVU","0B0ConXlhQ-SxUHNGcF9SMFVrek0" ],
+          6: [ "1vIVCH7qt4io0RKrbcMUKN8RFgH6H7tl6","0B0ConXlhQ-SxOFFTTHFtNDZMamc","0B0ConXlhQ-SxNWp5NTZYSnkyNEk","0B0ConXlhQ-Sxdy1RQzdseGs0cmc","0B0ConXlhQ-SxOVlYZEpPcEw5UHM","0B0ConXlhQ-SxMXMyWHpBSm9ZUlE","0B0ConXlhQ-SxMXMyWHpBSm9ZUlE","0B0ConXlhQ-SxNjA4clFCdVZ6ZjQ","0B0ConXlhQ-SxVU5MdW93NUh4WGM","0B0ConXlhQ-SxbFFfZWJORzJvZVU","0B0ConXlhQ-SxR1VSUXI0eEN4RlU","0B0ConXlhQ-SxN0Vzb3RNU2pDSW8","0B0ConXlhQ-SxWkYySGNZLThmVkk" ],
+          7: [ "0ByAyYx2cx8NDSFh4a3VTYUVUYnM","0ByAyYx2cx8NDSGMxX204VENkLWM","0ByAyYx2cx8NDSmFjMTRxdjI3bkU","1ZZrt31oRhw7LgFGjYp7cfKq7RlcDpgy4","1pRxRFOXoKmjgGW_QopsH8vR-MXkngysQ","1nXZqYEIspKNMh3eL3B42ngwngjTiXvx4","1qk5yW8yk2RUp_9UCdcyusIIrCR6ey9y0","1T93jQREjRjQudMoXIMCaaAPQcXay1MEM","1Z951g4JON04lHMD2ywB9TdiGA4JPqeuG","1h2cDtxkok6659iXHIjFHNo46Xw4rfVP1","1f9tQWTL2AzO9YwEjft5OzRwkpUxAviDo","1no1BQL2AgGtzQa4khnFMdV9LOpd4G6LG","1kiyOOnOSe_34BdctevnfRt-DLrfxLPoU" ]
+        }
       }
     };
 
@@ -372,42 +252,43 @@
       document.getElementById("catalogo").style.display = "none";
       document.getElementById("serie").style.display = "block";
 
-      document.getElementById("tituloSerie").innerText = serieAtual.titulo;
-      document.getElementById("infoSerie").innerText = serieAtual.info;
-      document.getElementById("descSerie").innerText = serieAtual.desc;
       document.getElementById("posterSerie").src = serieAtual.poster;
+      document.getElementById("tituloSerie").textContent = serieAtual.titulo;
+      document.getElementById("infoSerie").textContent = serieAtual.info;
+      document.getElementById("descSerie").textContent = serieAtual.desc;
 
-      // carregar temporadas
-      const select = document.getElementById("temporadaSelect");
-      select.innerHTML = "";
-      for (let t in serieAtual.temporadas) {
+      // Carregar temporadas
+      const temporadaSelect = document.getElementById("temporadaSelect");
+      temporadaSelect.innerHTML = "";
+      Object.keys(serieAtual.temporadas).forEach(num => {
         const opt = document.createElement("option");
-        opt.value = t;
-        opt.text = `Temporada ${t}`;
-        select.appendChild(opt);
-      }
+        opt.value = num;
+        opt.textContent = "Temporada " + num;
+        temporadaSelect.appendChild(opt);
+      });
 
       temporadaAtual = Object.keys(serieAtual.temporadas)[0];
-      select.value = temporadaAtual;
-
       carregarTemporada();
     }
 
     function carregarTemporada() {
-      const select = document.getElementById("temporadaSelect");
-      temporadaAtual = select.value;
+      const temporadaSelect = document.getElementById("temporadaSelect");
+      temporadaAtual = temporadaSelect.value;
 
-      const lista = document.getElementById("listaEpisodios");
-      lista.innerHTML = "";
+      const listaEpisodios = document.getElementById("listaEpisodios");
+      listaEpisodios.innerHTML = "";
 
-      serieAtual.temporadas[temporadaAtual].forEach((idVideo, index) => {
+      serieAtual.temporadas[temporadaAtual].forEach((id, index) => {
         const btn = document.createElement("button");
-        btn.innerText = `Episódio ${index + 1}`;
-        btn.onclick = () => carregarVideo(idVideo);
-        lista.appendChild(btn);
+        btn.textContent = "Episódio " + (index + 1);
+        btn.onclick = () => carregarVideo(id);
+        listaEpisodios.appendChild(btn);
       });
 
-      carregarVideo(serieAtual.temporadas[temporadaAtual][0]);
+      // Carregar automaticamente o primeiro episódio
+      if (serieAtual.temporadas[temporadaAtual].length > 0) {
+        carregarVideo(serieAtual.temporadas[temporadaAtual][0]);
+      }
     }
 
     function carregarVideo(id) {
