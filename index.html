@@ -1,284 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sériesmpp</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #f0f0f0;
-    }
-
-    header {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.8em;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    }
-
-    /* ====== Catálogo ====== */
-    .catalogo {
-      padding: 30px;
-      text-align: center;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
-      background: #111;
-      border-radius: 12px;
-      width: 160px;
-      padding: 10px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      margin: 0;
-      font-size: 1em;
-      font-weight: bold;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
-    }
-
-    /* ====== Página da Série ====== */
-    .serie {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .serie h2 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
-
-    .serie p {
-      font-size: 1em;
-      color: #bbb;
-      margin-bottom: 20px;
-    }
-
-    .player-container {
-      margin: 20px 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-    }
-
-    /* ====== Botões ====== */
-    button {
-      background: #222;
-      color: #fff;
-      border: none;
-      padding: 10px 18px;
-      margin: 6px;
-      cursor: pointer;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      font-size: 0.95em;
-    }
-
-    button:hover {
-      background: #444;
-      transform: scale(1.05);
-    }
-
-    /* ====== Select ====== */
-    select {
-      background: #111;
-      color: #fff;
-      border: 1px solid #444;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIAFLIX</title>
 </head>
+
 <body>
-  <header>SÉRIES</header>
 
-  <!-- Catálogo -->
-  <div id="catalogo" class="catalogo">
-    <div class="cards">
-      <div class="card" onclick="abrirSerie('ScreamQueens')">
-        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5pFxT_mD4YLVQ4HCArPftpTW72JPT0UfX9aqcGAG2dnAmyRlRKoxwFu_cGgwPrEc_01fT7yAntSBcC9Z4kCy7ED-k2MNCp4xyOtl6O5qZ" alt="Scream Queens">
-        <p>Scream Queens</p>
-      </div>  
+<div id="intro">
+  <h1>TIAFLIX</h1>
+  <span class="credit">By Bertaglia</span>
+</div>
 
-      <div class="card" onclick="abrirSerie('DoctorWho')">  
-        <img src="https://i.ebayimg.com/images/g/UJAAAOSwD39aZ5OM/s-l1200.jpg" alt="Doctor Who">  
-        <p>Doctor Who</p>  
-      </div>  
+<audio id="introSound" preload="auto">
+  <source src="primalhousemusic-production-elements-impactor-e-188986.mp3" type="audio/mpeg">
+</audio>
 
-      <div class="card" onclick="abrirSerie('monsters_at_work')">
-        <img src="https://m.media-amazon.com/images/M/MV5BYzJhY2YzYmMtNDgwZi00ZjEyLTk2ODAtZDE1YzU3MTRjNTYzXkEyXkFqcGc@._V1_.jpg" alt="Monstros no Trabalho">  
-        <p>Monstros no Trabalho</p>  
-      </div>  
+<style>
+body{
+  margin:0;
+  background:#000;
+}
 
-      <div class="card" onclick="abrirSerie('Três_Espiãs_Demais')">  
-        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRmVXkT-SAAUYC6i3YzAWo3d8Watk-WuB2PqbEY9RX0scYKZb2smfKR8KMi6bcGdl_Ss1lxXFGlxqYDWp_3kPu5LBsGjBLfagpwcejlcjzp" alt="Três Espiãs Demais">  
-        <p>Três Espiãs Demais</p>  
-      </div>  
-      <div class="card" onclick="abrirSerie('Super_Choque')">  
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN2gYQC3seJNBvzanFRj5ThgLrmCBi8pw4OV_O4x2ALQ&s=10" alt="Super Choque">  
-        <p>Super Choque</p>  
-      </div> 
-    </div>
-  </div>
+#intro{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 3s;
+}
 
-  <!-- Página da Série -->
-  <div id="serie" class="serie" style="display: none;">
-    <button onclick="voltar()">⬅ Voltar</button>
-    <h2 id="tituloSerie"></h2>
-    <p id="infoSerie"></p>
-    
-    <div>
-      <label for="temporadaSelect">Temporada:</label>
-      <select id="temporadaSelect" onchange="mudarTemporada(this.value)"></select>
-    </div>
+#intro h1{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(40px, 10vw, 100px);
+  color:#e50914;
+  letter-spacing:6px;
+  animation: zoomGlow 3s ease forwards;
+}
 
-    <div class="player-container">
-      <iframe id="videoPlayer" allowfullscreen></iframe>
-    </div>
+.credit{
+  position:absolute;
+  bottom:25px;
+  font-size:13px;
+  letter-spacing:3px;
+  color:#fff;
+  opacity:0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 2s;
+}
 
-    <div id="episodiosContainer"></div>
-  </div>
+@keyframes zoomGlow{
+  0%{
+    opacity:0;
+    transform:scale(0.6);
+    text-shadow:none;
+  }
+  60%{
+    opacity:1;
+    transform:scale(1);
+    text-shadow:0 0 30px #e50914;
+  }
+  100%{
+    text-shadow:0 0 60px #e50914;
+  }
+}
 
-  <script>
-    const series = {
-      ScreamQueens: {
-        titulo: "Scream Queens",
-        info: "2015 | Terror, Comédia, Mistério",
-        temporadas: {
-          1: ["19vmtcpxxihLug5ugJn2HhUlZ24-wOvqx","1X1T_w1N5_vOYiYjj6cCBPH0peRaxUTjd","1O7jwy2JJDrNnO84mKjPcLZxw_GqMyDWe","1bh9vSIXiG3EyJuytgoSFe2rsFakNdQiy","1nc8NXFqzlOaEcHVqahPXSY7amyTpWvIZ","1Uw0WCZx6Mwzk6-A7TxMDOuhC-8fy-Dgr","1yXtFkLszTz7EAciLSK8FnODFI9OgVgUp","1K1sUMAGBJefqkINu5fSJpZfPhdrAz_V3","14Xx9xhPiCuPEp9F5ttg8AGw4pBTnu-sO","1r8QiMVxvLOgtKGfoIf5KahMSurQUg8_z","1OZD7zWlWy-CkOjmwY3hne_hcHXW653gL"],
-          2: ["1GnJewbigahEYWGUOL9MCcfSuRx6kczRQ","10tWsFBQfa4LPg4X6Kxjw_44oXk9ReUVJ","1t4VFhPJjoQ_lOqxb0eojNkneGeMTMW8U","1elx1BnD-toXUX5PJS-6ex6fLWxiIMsWx","1OCOdeAv_Ouz97ucnrLrHt9Aa6Ihc1tE7","1Zm7raBPgruwo_4RnboHr5ShSXex6fGg8","1oI3X-U1JpBku69plHcpVvYmM_SZv0EuZ","13X2Q4pn5BijMbCAFBgIjO7MXL7RQHKZR","1DjG6xYOLLU5HkGFcCJtoUOa_nyfV1pzv","1Vy22tO2iWXUpAM1bi9doqPmAQvZGZAC"]
-        }
-      },
-      DoctorWho: {
-        titulo: "Doctor Who",
-        info: "Série de ficção científica",
-        temporadas: {
-          1: [ "1aPOWMY9eZdxBpD9c9keyQ7ALxDGTXlHi","12OQIxF9rP-JQJL_h7GIFHXRE_z5UKmKb","1z9db1Yxx0h0dQ8aPDYQ8gIZ4xSTqWzHN","1ETRe4B6NDEec4QWv9lBonyXSamFbnqt5","1EtGEghkGpFHjZ_uvnimwMn7RMZuUmZDD","1rhzDaM4PnWfNeIrBROyIbME4papPe4kh","1X7xQJZ9zGsPrKZdqrng8-NQjJaUEb0Kw","10qVHrvlgGmC0ROUGf18yTjryEjyoKskl","1yYFCwae_cnL83y5nYOXzSX81GHPfNPVi","1x_PE1NZdNpUgQ9RRCCpn0fxjTcQ645rx","1-tKIZ7ipnADEQdUh_4MM4HD-amLbUDnv","1IBxfHMpG0WYCtXhmEOnrsQ__QaXPAV7J","1S5R2_jEh_iFrmNTijrhW4WXsc5LHRzZF" ],
-          2: [ "0B0cnJ5ZQGC0ZUk5LMTBQTjJBaWc","0B0cnJ5ZQGC0ZX2dlUm9VbEF0Tjg","0B0cnJ5ZQGC0ZNWV5eUowNW1HQms","0B0cnJ5ZQGC0ZS1lTTkdESnBsMVU","0B0cnJ5ZQGC0ZQTZKbVVKX1hXUkU","0B0cnJ5ZQGC0ZUzItNXZpVmQ5ZXM","0B0cnJ5ZQGC0ZZFRWd19qY0xKVTA","0B0cnJ5ZQGC0Zek9OUEpMYmlYbVU","0B0cnJ5ZQGC0ZMlNUd2pJc3ZvMVE","0B0cnJ5ZQGC0ZUkhsclE1YmMzOEE","0B0cnJ5ZQGC0ZSDRTcTh1ejlZVzQ","0B0cnJ5ZQGC0ZZENYYVdvZFE1X00","0B0cnJ5ZQGC0ZaElEVDBVTEFhTTA" ],
-          3: [ "0B0cnJ5ZQGC0ZQjJleGw3TW5VUWM","0B0cnJ5ZQGC0ZR3lqaHBhLXd1QVk","0B0cnJ5ZQGC0ZMTl1WXY2aVo4MVk","0B0cnJ5ZQGC0ZaGdVaXhVaXBtYW8","0B0cnJ5ZQGC0ZMlFiS0c0THNsQjA","0B0cnJ5ZQGC0ZYnNtZjdwT3VaOW8","0B0cnJ5ZQGC0ZMW4xY2dUMlpLZ2M","0B0cnJ5ZQGC0ZU2pLOGgzelFaeXM","0B0cnJ5ZQGC0ZNTdUZ3dvTmR1UVU","0B0cnJ5ZQGC0ZcVAtTUdadkdBTnM","0B0cnJ5ZQGC0ZcXhkbzJtdzc3eEk","0B0cnJ5ZQGC0ZY0lndEpraHpiYmc" ],
-          4: [ "0B0cnJ5ZQGC0ZTnZieVI3eV9QLTQ","0B0cnJ5ZQGC0ZQUlCdmFZbFBFWVE","0B0cnJ5ZQGC0ZMEZneHZvMU9ULTA","0B0cnJ5ZQGC0ZREVhNGxoT1dCS28","0B0cnJ5ZQGC0ZNERMdjh0MVhiVms","0B0cnJ5ZQGC0ZTDNIaEJRU28wLXc","0B0cnJ5ZQGC0ZYnJpRkljUEtORWM","0B0cnJ5ZQGC0ZU2ZYSVJxSG5kWTQ","0B0cnJ5ZQGC0ZQURiVHU2WjBfd2c","0B0cnJ5ZQGC0ZeTBlWEs5ZGJMSHc","0B0cnJ5ZQGC0ZTXM0ZE1kMjBQVFU","0B0cnJ5ZQGC0ZUmRJeHhieGhWbFU","0B0cnJ5ZQGC0ZWW9HRUc0S1ZRSGc","0B0cnJ5ZQGC0ZN3lfV2VTQnRpcWs","0B0cnJ5ZQGC0ZOVQ5T0laV0lfSzA","0B0cnJ5ZQGC0ZNVg0cjAtMWo5WUE" ],
-          5: [ "0B0cnJ5ZQGC0ZVm1jMmdzeFBzRDg","0B0cnJ5ZQGC0ZWFdUUXJOQUMtUkE","0B0cnJ5ZQGC0ZNF9RSkZ6R2tkOEk","0B0cnJ5ZQGC0ZZEhZbVg2V2dVN2s","0B0cnJ5ZQGC0ZVUMydUx5Q0xndTg","0B0ConXlhQ-SxX013TzE4UkZITDA","0B0ConXlhQ-SxWHF0Qm56N0t0bXM","0B0ConXlhQ-Sxd0FDNHFYc2FfS1E","0B0ConXlhQ-SxOUpXT1Z5YU9QckE","0B0ConXlhQ-SxblZPQmNqenRCT0E","0B0ConXlhQ-SxWnJKc2xYYjM1YVU","0B0ConXlhQ-SxUHNGcF9SMFVrek0" ],
-          6: [ "1vIVCH7qt4io0RKrbcMUKN8RFgH6H7tl6","0B0ConXlhQ-SxOFFTTHFtNDZMamc","0B0ConXlhQ-SxNWp5NTZYSnkyNEk","0B0ConXlhQ-Sxdy1RQzdseGs0cmc","0B0ConXlhQ-SxOVlYZEpPcEw5UHM","0B0ConXlhQ-SxMXMyWHpBSm9ZUlE","0B0ConXlhQ-SxMXMyWHpBSm9ZUlE","0B0ConXlhQ-SxNjA4clFCdVZ6ZjQ","0B0ConXlhQ-SxVU5MdW93NUh4WGM","0B0ConXlhQ-SxbFFfZWJORzJvZVU","0B0ConXlhQ-SxR1VSUXI0eEN4RlU","0B0ConXlhQ-SxN0Vzb3RNU2pDSW8","0B0ConXlhQ-SxWkYySGNZLThmVkk" ],
-          7: [ "0ByAyYx2cx8NDSFh4a3VTYUVUYnM","0ByAyYx2cx8NDSGMxX204VENkLWM","0ByAyYx2cx8NDSmFjMTRxdjI3bkU","1ZZrt31oRhw7LgFGjYp7cfKq7RlcDpgy4","1pRxRFOXoKmjgGW_QopsH8vR-MXkngysQ","1nXZqYEIspKNMh3eL3B42ngwngjTiXvx4","1qk5yW8yk2RUp_9UCdcyusIIrCR6ey9y0","1T93jQREjRjQudMoXIMCaaAPQcXay1MEM","1Z951g4JON04lHMD2ywB9TdiGA4JPqeuG","1h2cDtxkok6659iXHIjFHNo46Xw4rfVP1","1f9tQWTL2AzO9YwEjft5OzRwkpUxAviDo","1no1BQL2AgGtzQa4khnFMdV9LOpd4G6LG","1kiyOOnOSe_34BdctevnfRt-DLrfxLPoU" ]
-        }
-      },
-      monsters_at_work: {
-        titulo: "Monstros no Trabalho",
-        info: "Animação | Disney+",
-        temporadas: {
-          1: ["1PDNvw4p83MAmB6DZPvm6RdrruOtJ4Z5K","1brBdmPr-yUZrj51-5Ke94q7gdji6T6Z9","1D7MvyAXuK4TFng-k8WOLTRMXStl4GRLq","1ncTAEhygDBsmcbhYNyFHt7MWlNR3dCPO","1rUjdffzflYHVU8nzD6vJOMEisVsj5bsY"]
-        }
-      },
-      "Três_Espiãs_Demais": {
-        titulo: "Três Espiãs Demais",
-        info: "Animação | Aventura",
-        temporadas: {
-          1: ["1nIOTKCWowXF5xcnShkhJckq18M6IKlhY","1LYGUyppp11_pqYE3jJUalIw804_kubDD","1EqX5HSZZ3x78_2KnhzrB-QicfPdgCjIh","1BKTDTzs055xTtnL1TY113rIrq-qfxgOP","1UQert5wirtXk98tPcuAvXRCDguYYiR8M","1EDsZZJ65HAWnByIeW7R6t3KHQjvkcyEb","1vcE91PdpxJTw2gfHpUsrhtK7qOKtzjd0","1GVPxLFJl4rEMYc2WSIpfsxQIeLUrJ2GO","11qk03G08K5jkkusXikKnK50tG3Z4dFmf","1OeS6EVDAcc8VUSrQx2PQwAYLugUcqnd9","1bwX3dOFmNpFDkuPFay2CqB9A-AQHFcEP","1spixs8cePw2vk74ZYGUFmnHg1g4sCZro","1q6V33nJlMgLcb_x9tueyvtcWs1J6YIcZ","1OVC0xmjxAE-WO7-g0H2LAj_OFKKqVGg0","1PXlJxtBuRBVIAWPw5aBXmqnnDsCGQ_2q","12puRTMFLzFE61gSMJGP_zSjSYUuMC_xG","1fRxT9UYeaCRfG2IDHztjkopwVQuDYosp","1sTq3oOEdWKLjgKDUSYy2ozsgkceA582c","1rntnMVKEa5jTeAEi_izEPeuKAuLfZ04x","1HLTVFR3PtYlEDKl03odeE9333SenyHNc","13X5HvcvfEGwfj0v6tOUESQ632AMyN5vY","1GryD5-4z8Id8NBXBQ8BY9Mv4FceUeLtB","1g2Fk3GrIZRfJ_SZFD3_HAXSgKw5CN19B","18ZcGmO6KlmkMKtHoxnrcUToSjp9TnuR-","1dgOo78EONmPjf3VaS5Xt4jUv41wd2rrP","1UPA6rsDPZubaLPJt3hr869qcPGQVKc_A"]
-        }
-      },
-        "Super_Choque": {
-        titulo: "Super Choque",
-        info: "Animação | Aventura",
-        temporadas: {
-          1: ["1yYWgH8OUkd2cr0s1aFHz6NS-T_3jVep3","1cMAhSdi_Qc8clY2BP02RqzJW0TaabY6R","1an6bE9tslWvUQM9g2KNP_KJ2g6MZun4-", "13m9k6zb58GBkI6EN0bQKZFhi_g2kufLu", "1I3k9H-egzdWhoEQ-NYVVCSimUx1Sr1KL", "1J-eG4fBLPXedg5VZ3ZlBDcxaJ6zIsDbt", "11INqVBz6tklOZx2AxpgLwEM79yC5bxVO", "1Y0wheeh2AZ3gE59U2ll6q7WQI5d2LDsE", "1KK4WVWWxPsrrtq4vyIAMp-f_9GJQo9iR", "1gpKtyWXkzl7rYFwVCOwjEnZMgyz3f5r4", "1v3Uc4D7iS5ffAbv9aJWbebBawl--vQeV", "1oS28utOtL9BdoNT0JqppTvxVE1V9LYfx"],
-          2: ["13RkByIJyfxNo8_D3rlmqpc_w9KAIVACS", "1fMWe8k9_IHE9Vpux5nnNm4phQSAbOOjm", "1mWzdn6nZ-ZuSLOHV9QZuJP7MMf8ctxD5", "1PDa03wx6uQ3JylgXWuHfz6cn4ZnNgO7K", "1b_HnVEb37xEX_4qsZUkAh2dPHdT5pwNz", "1qyT8y06v4ucrnx3NFcceCB0H8hsmoDIh", "1dmq-U9tGqepf8wz2LIvXv_eV0hKmmNRu", "1eJKT13ctx6baksHg9QCxMmlSPAR2fCwd", "1Z1jnAF9G5_adqG8-CuWdIMtlthGu77Gm", "1bzkoTZ2WX-0mURd3pHYDYWzdtN5alcFu", "1lQOrHaIe8PcR6YGv7j2ICKddyLpbnOAo", "1w_xvn1QRWqIYKE1tLwjhLmaaHL6kMzrO", "1OLiTArZhkxSoHhH18V_XS-E70AiytQou"]
-        }
-      }
-    };
+@keyframes fadeIn{
+  to{ opacity:0.8; }
+}
 
-    let serieAtual = null;
-    let temporadaAtual = null;
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
+</style>
 
-    function abrirSerie(id) {
-      serieAtual = series[id];
-      document.getElementById("catalogo").style.display = "none";
-      document.getElementById("serie").style.display = "block";
+<script>
+const sound = document.getElementById("introSound");
+sound.volume = 0.6;
 
-      document.getElementById("tituloSerie").textContent = serieAtual.titulo;
-      document.getElementById("infoSerie").textContent = serieAtual.info;
+sound.play().catch(()=>{});
 
-      const temporadaSelect = document.getElementById("temporadaSelect");
-      temporadaSelect.innerHTML = "";
-      Object.keys(serieAtual.temporadas).forEach(num => {
-        const opt = document.createElement("option");
-        opt.value = num;
-        opt.textContent = "Temporada " + num;
-        temporadaSelect.appendChild(opt);
-      });
+setTimeout(()=>{
+  document.getElementById("intro").remove();
+  window.location.href = "tiaflix.html";
+},6000);
+</script>
 
-      temporadaAtual = Object.keys(serieAtual.temporadas)[0];
-      carregarTemporada();
-    }
-
-    function carregarTemporada() {
-      const episodios = serieAtual.temporadas[temporadaAtual];
-      const container = document.getElementById("episodiosContainer");
-      container.innerHTML = "";
-
-      episodios.forEach((id, index) => {
-        const btn = document.createElement("button");
-        btn.textContent = "Episódio " + (index + 1);
-        btn.onclick = () => carregarVideo(id);
-        container.appendChild(btn);
-      });
-
-      carregarVideo(episodios[0]);
-    }
-
-    function carregarVideo(id) {
-      let videoId = id;
-      if (id.includes("id=")) {
-        videoId = id.split("id=")[1];
-      } else if (id.includes("/d/")) {
-        videoId = id.split("/d/")[1].split("/")[0];
-      }
-      document.getElementById("videoPlayer").src =
-        "https://drive.google.com/file/d/" + videoId + "/preview";
-    }
-
-    function mudarTemporada(num) {
-      temporadaAtual = num;
-      carregarTemporada();
-    }
-
-    function voltar() {
-      document.getElementById("catalogo").style.display = "block";
-      document.getElementById("serie").style.display = "none";
-      document.getElementById("videoPlayer").src = "";
-    }
-  </script>
 </body>
 </html>
