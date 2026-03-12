@@ -6,9 +6,7 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
 margin:0;
@@ -195,25 +193,25 @@ id:"DAN DA DAN",
 titulo:"DAN DA DAN",
 categoria:"Animes",
 descricao:"Adolescentes enfrentam alienígenas e espíritos em batalhas caóticas e sobrenaturais.",
-capa:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQyF1p-h8o1bUltun2VnnLP20LK5gtRfLxXVWluyTT93ACCJBc4https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQyF1p-h8o1bUltun2VnnLP20LK5gtRfLxXVWluyTT93ACCJBc4",
+capa:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyjuB28SMQ1dhK8yvhBjz5IaPj2D4LS-9G-LXf_C0pOg&s=10",
 episodios:[
-"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
-"1DEF456",
-"1GHI789"
-]
+{
+video:"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
+thumb:"img/naruto-ep1.jpg"
 },
 
 {
-id:"attack",
-titulo:"Attack on Titan",
-categoria:"Animes",
-descricao:"A humanidade luta contra gigantes devoradores.",
-capa:"https://image.tmdb.org/t/p/original/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
-episodios:[
-"1AAA111",
-"1BBB222",
-"1CCC333"
+video:"1DEF456",
+thumb:"img/naruto-ep2.jpg"
+},
+
+{
+video:"1GHI789",
+thumb:"img/naruto-ep3.jpg"
+}
+
 ]
+
 },
 
 {
@@ -222,10 +220,21 @@ titulo:"The Witcher",
 categoria:"Ação",
 descricao:"Um caçador de monstros em um mundo cheio de magia.",
 capa:"https://image.tmdb.org/t/p/original/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
+
 episodios:[
-"1DDD444",
-"1EEE555"
+
+{
+video:"1DDD444",
+thumb:"img/witcher-ep1.jpg"
+},
+
+{
+video:"1EEE555",
+thumb:"img/witcher-ep2.jpg"
+}
+
 ]
+
 }
 
 ]
@@ -352,7 +361,7 @@ div.className="ep"
 
 div.innerHTML=`
 
-<img src="https://picsum.photos/300/170?random=${i}">
+<img src="${ep.thumb}">
 
 <div>
 <h3>Episódio ${i+1}</h3>
@@ -363,7 +372,7 @@ div.innerHTML=`
 div.onclick=()=>{
 
 document.getElementById("player").src=
-`https://drive.google.com/file/d/${ep}/preview`
+`https://drive.google.com/file/d/${ep.video}/preview`
 
 }
 
@@ -372,7 +381,7 @@ lista.appendChild(div)
 })
 
 document.getElementById("player").src=
-`https://drive.google.com/file/d/${serie.episodios[0]}/preview`
+`https://drive.google.com/file/d/${serie.episodios[0].video}/preview`
 
 }
 
