@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>TiaFlix</title>
+<title>TIAFLIX</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -13,23 +17,98 @@ font-family:Arial;
 color:white;
 }
 
+/* NAVBAR */
+
 .navbar{
-background:#111;
+position:fixed;
+top:0;
+width:100%;
 padding:20px;
 font-size:28px;
 color:#e50914;
 font-weight:bold;
+background:transparent;
+z-index:1000;
 }
 
-.container{
-padding:30px;
+/* HERO */
+
+.hero{
+height:75vh;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:60px;
+position:relative;
+transition:1s;
 }
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to top,#000,transparent);
+}
+
+.hero-content{
+position:relative;
+max-width:500px;
+z-index:2;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#ddd;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:10px 20px;
+margin-right:10px;
+border:none;
+border-radius:4px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.play{
+background:white;
+color:black;
+}
+
+.info{
+background:#444;
+color:white;
+}
+
+/* CONTAINER */
+
+.container{
+padding:100px 30px 30px 30px;
+}
+
+/* ROW */
 
 .row{
 display:flex;
 gap:15px;
 overflow-x:auto;
+padding-bottom:10px;
 }
+
+.row::-webkit-scrollbar{
+display:none;
+}
+
+/* CARDS */
 
 .card img{
 width:160px;
@@ -39,14 +118,18 @@ transition:.3s;
 }
 
 .card img:hover{
-transform:scale(1.1);
+transform:scale(1.12);
 }
+
+/* PLAYER */
 
 .player{
 width:100%;
 height:420px;
 background:#111;
 margin:30px 0;
+border-radius:8px;
+overflow:hidden;
 }
 
 .player iframe{
@@ -54,6 +137,8 @@ width:100%;
 height:100%;
 border:none;
 }
+
+/* EPISODIOS */
 
 .episodios{
 display:flex;
@@ -80,10 +165,16 @@ object-fit:cover;
 border-radius:4px;
 }
 
+/* VOLTAR */
+
 .voltar{
 margin-bottom:20px;
 cursor:pointer;
 color:#aaa;
+}
+
+.voltar:hover{
+color:white;
 }
 
 </style>
@@ -91,70 +182,105 @@ color:#aaa;
 
 <body>
 
-<div class="navbar">TiaFlix</div>
+<div class="navbar">TIAFLIX</div>
 
 <div class="container" id="app"></div>
 
 <script>
 
-/* =======================
-CONST PROFISSIONAL
-======================= */
-
-const series = [
+const series=[
 
 {
-id:"naruto",
-titulo:"Naruto",
+id:"DAN DA DAN",
+titulo:"DAN DA DAN",
 categoria:"Animes",
-capa:"https://image.tmdb.org/t/p/w500/xC9q7jHnR7o9p8pXQ8Z9q4CPGK.jpg",
-
+descricao:"Adolescentes enfrentam alienígenas e espíritos em batalhas caóticas e sobrenaturais.",
+capa:"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQyF1p-h8o1bUltun2VnnLP20LK5gtRfLxXVWluyTT93ACCJBc4https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQyF1p-h8o1bUltun2VnnLP20LK5gtRfLxXVWluyTT93ACCJBc4",
 episodios:[
-"1ABC123",
+"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
 "1DEF456",
 "1GHI789"
 ]
-
 },
 
 {
 id:"attack",
 titulo:"Attack on Titan",
 categoria:"Animes",
-capa:"https://image.tmdb.org/t/p/w500/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
-
+descricao:"A humanidade luta contra gigantes devoradores.",
+capa:"https://image.tmdb.org/t/p/original/hTP1DtLGFamjfu8WqjnuQdP1n4i.jpg",
 episodios:[
 "1AAA111",
 "1BBB222",
 "1CCC333"
 ]
-
 },
 
 {
 id:"witcher",
 titulo:"The Witcher",
 categoria:"Ação",
-capa:"https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
-
+descricao:"Um caçador de monstros em um mundo cheio de magia.",
+capa:"https://image.tmdb.org/t/p/original/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg",
 episodios:[
 "1DDD444",
 "1EEE555"
 ]
-
 }
 
 ]
 
-const app = document.getElementById("app")
+const app=document.getElementById("app")
 
-/* =======================
-HOME
-======================= */
+/* HOME */
 
 function home(){
 
-app.innerHTML=""
+app.innerHTML=`
+
+<div class="hero" id="hero">
+
+<div class="hero-content">
+
+<h1 id="heroTitle"></h1>
+
+<p id="heroDesc"></p>
+
+<button class="play" id="heroPlay">▶ Assistir</button>
+
+<button class="info" id="heroInfo">Mais informações</button>
+
+</div>
+
+</div>
+
+`
+
+const hero=document.getElementById("hero")
+const heroTitle=document.getElementById("heroTitle")
+const heroDesc=document.getElementById("heroDesc")
+const heroPlay=document.getElementById("heroPlay")
+const heroInfo=document.getElementById("heroInfo")
+
+function trocarBanner(){
+
+const destaque=series[Math.floor(Math.random()*series.length)]
+
+hero.style.backgroundImage=`url('${destaque.capa}')`
+
+heroTitle.innerText=destaque.titulo
+heroDesc.innerText=destaque.descricao
+
+heroPlay.onclick=()=>abrirSerie(destaque.id)
+heroInfo.onclick=()=>abrirSerie(destaque.id)
+
+}
+
+trocarBanner()
+
+setInterval(trocarBanner,10000)
+
+/* CATEGORIAS */
 
 const categorias={}
 
@@ -196,13 +322,11 @@ app.appendChild(row)
 
 }
 
-/* =======================
-ABRIR SÉRIE
-======================= */
+/* ABRIR SERIE */
 
 function abrirSerie(id){
 
-const serie = series.find(s=>s.id===id)
+const serie=series.find(s=>s.id===id)
 
 app.innerHTML=`
 
@@ -218,7 +342,7 @@ app.innerHTML=`
 
 `
 
-const lista = document.getElementById("episodios")
+const lista=document.getElementById("episodios")
 
 serie.episodios.forEach((ep,i)=>{
 
@@ -252,9 +376,7 @@ document.getElementById("player").src=
 
 }
 
-/* =======================
-START
-======================= */
+/* START */
 
 home()
 
