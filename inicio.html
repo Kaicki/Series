@@ -180,6 +180,15 @@ font-size:14px;
 color:white;
 }
 
+select{
+margin-bottom:10px;
+padding:5px;
+background:#111;
+color:white;
+border:none;
+border-radius:4px;
+}
+
 </style>
 </head>
 
@@ -200,65 +209,85 @@ categoria:"Animes",
 descricao:"Adolescentes enfrentam alienígenas e espíritos.",
 capa:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyjuB28SMQ1dhK8yvhBjz5IaPj2D4LS-9G-LXf_C0pOg&s=10",
 
+temporadas:[
+
+{
+nome:"Temporada 1",
+
 episodios:[
 
-{
-video:"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
-thumb:"https://picsum.photos/300/170?1"
-},
+{video:"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
+thumb:"https://picsum.photos/300/170?1"},
 
-{
-video:"1DEF456",
-thumb:"https://picsum.photos/300/170?2"
-},
-
-{
-video:"1GHI789",
-thumb:"https://picsum.photos/300/170?3"
-}
+{video:"1DEF456",
+thumb:"https://picsum.photos/300/170?2"}
 
 ]
 
-}
+},
 
+{nome:"Temporada 2",
+episodios:[
+{video:"1GHI789",
+thumb:"https://picsum.photos/300/170?3"}
+]
+}
+]
+},
+  {
+id:"one piece",
+titulo:"ONE PIECE",
+categoria:"Live action",
+descricao:"O pirata Monkey D. Luffy e sua tripulação exploram um mundo fantástico de oceanos infinitos e ilhas exóticas em busca do maior tesouro do mundo.",
+capa:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVLHIfitRT_TdxsK3ibPB85hXbMJGYM4PyLDTq_R18J_Rej4_V ",
+
+temporadas:[
+
+{
+nome:"Temporada 1",
+
+episodios:[
+
+{video:"1X7i-UP2RUG-pBepsFrOTKyF9ZbPhse0U",
+thumb:"https://picsum.photos/300/170?1"},
+
+{video:"1DEF456",
+thumb:"https://picsum.photos/300/170?2"}
+
+]
+
+},
+
+{nome:"Temporada 2",
+episodios:[
+{video:"1GHI789",
+thumb:"https://picsum.photos/300/170?3"}
+]
+}
+]
+  }
+  
 ]
 
 const app=document.getElementById("app")
-
-/* HOME */
-
 function home(){
-
 app.innerHTML=`
-
 <div class="hero" id="hero">
-
 <div class="hero-content">
-
 <h1 id="heroTitle"></h1>
-
 <p id="heroDesc"></p>
-
 <button class="play" id="heroPlay">▶ Assistir</button>
-
 <button class="info" id="heroInfo">Mais informações</button>
-
 </div>
-
 </div>
-
 `
-
 const hero=document.getElementById("hero")
 const heroTitle=document.getElementById("heroTitle")
 const heroDesc=document.getElementById("heroDesc")
 const heroPlay=document.getElementById("heroPlay")
 const heroInfo=document.getElementById("heroInfo")
-
 function trocarBanner(){
-
 const destaque=series[Math.floor(Math.random()*series.length)]
-
 hero.style.backgroundImage=`url('${destaque.capa}')`
 
 heroTitle.innerText=destaque.titulo
@@ -331,13 +360,33 @@ app.innerHTML=`
 <iframe id="player" allowfullscreen allow="fullscreen"></iframe>
 </div>
 
+<select id="temporada"></select>
+
 <div class="episodios" id="episodios"></div>
 
 `
 
 const lista=document.getElementById("episodios")
+const select=document.getElementById("temporada")
 
-serie.episodios.forEach((ep,i)=>{
+serie.temporadas.forEach((t,i)=>{
+
+const opt=document.createElement("option")
+
+opt.value=i
+opt.innerText=t.nome
+
+select.appendChild(opt)
+
+})
+
+function carregar(temp){
+
+lista.innerHTML=""
+
+const temporada=serie.temporadas[temp]
+
+temporada.episodios.forEach((ep,i)=>{
 
 const div=document.createElement("div")
 
@@ -365,7 +414,13 @@ lista.appendChild(div)
 })
 
 document.getElementById("player").src=
-`https://drive.google.com/file/d/${serie.episodios[0].video}/preview`
+`https://drive.google.com/file/d/${temporada.episodios[0].video}/preview`
+
+}
+
+select.onchange=()=>carregar(select.value)
+
+carregar(0)
 
 }
 
